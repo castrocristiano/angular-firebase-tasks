@@ -1,0 +1,4 @@
+<mat-list-item (click)="executeAction('selectTask')">
+  <p matLine>{{ task.title }}</p>
+  <mat-slide-toggle (ngModel)="task" (click)="executeAction('performTask'); $event.stopPropagation()" color="primary" [checked]="task.done"></mat-slide-toggle>
+</mat-list-item>

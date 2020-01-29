@@ -1,0 +1,12 @@
+<mat-list>
+  <app-task-item
+    *ngFor="let task of tasks$ | async"
+    [task]="task"
+    (performTask)="onPerformTask($event)"
+    (selectTask)="selectedTask=$event">
+  </app-task-item>
+</mat-list>
+
+<button mat-fab class="fab-botton-right" (click)="showDialog()" >
+  <mat-icon>add</mat-icon>
+</button>
