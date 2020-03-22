@@ -3,6 +3,7 @@ import { TaskService } from './../task.service';
 import { Task } from './../models/task.model';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
@@ -13,7 +14,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material';
 export class TaskListComponent implements OnInit {
 
   tasks$: Observable<Task[]>;
-
+  loading = true;
   selectedTask: Task;
 
   constructor(
@@ -23,6 +24,10 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit() {
     this.tasks$ = this.taskService.tasks.valueChanges();
+
+    this.tasks$
+      .pipe(take(1))
+      .subscribe(() => this.loading = false);
   }
 
   onPerformTask(task: Task) {
