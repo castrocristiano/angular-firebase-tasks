@@ -14,7 +14,8 @@ import {
   MatIconModule,
   MatDialogModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -46,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatLineModule,
     MatListModule,
+    MatMenuModule,
     MatSlideToggleModule
   ],
   providers: [TaskService],

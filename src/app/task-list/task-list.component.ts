@@ -3,7 +3,7 @@ import { TaskService } from './../task.service';
 import { Task } from './../models/task.model';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
 @Component({
   selector: 'app-task-list',
@@ -30,7 +30,12 @@ export class TaskListComponent implements OnInit {
     this.taskService.update(task);
   }
 
-  showDialog(): void {
-    this.dialog.open(TaskDialogComponent);
+  showDialog(task?: Task): void {
+    const config: MatDialogConfig<any> = (task) ? {data: {task}} : null;
+    this.dialog.open(TaskDialogComponent, config);
+  }
+
+  onDelete(task: Task) {
+    this.taskService.delete(task);
   }
 }
