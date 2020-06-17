@@ -39,6 +39,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     FormsModule,
     MatButtonModule,
     MatDialogModule,
